@@ -164,7 +164,7 @@ def create_user(request):
                 ).save()
                 messages.success(request, _('Account created'))
                 # After creation of account user will redirect to dashboard
-                return redirect('/dashboard')
+            return redirect('/dashboard')
     else:
         form = RegistrationForm()
         return render(request, 'register.html', {'form': form, 'menu': 'create'})
