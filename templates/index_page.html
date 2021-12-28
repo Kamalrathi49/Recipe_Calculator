@@ -9,7 +9,7 @@
           <img src="{% static 'assets/images/svg/graphic-1.svg' %}" class="img-fluid" alt="Illustration">
         </div>
         <div class="col-md-10 col-lg-6 col-xl-5 text-center text-lg-start order-lg-1">
-          <h1>A better place for Chefs.</h1>
+          <h2>Leading Recipe Costing Calculator For Food Businesses Of All Types And Sizes</h2>
           <p class="lead text-secondary mb-5">Leading cost of recipe calculator for all size food businesses, 
             helping chefs worldwide succeed wih simplicity, certainty and speed,
             have <strong>CHEFINTEL</strong> help you make intelligent choices to maximize profit and save time.
@@ -191,103 +191,195 @@
         <div class="col-xl-3 d-none d-xl-block">
           <div class="card">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item ps-0 py-3">Unlimited Viewers</li>
-              <li class="list-group-item ps-0 py-3">Editors</li>
-              <li class="list-group-item ps-0 py-3">Multiplayer</li>
-              <li class="list-group-item ps-0 py-3">Developer handoff</li>
-              <li class="list-group-item ps-0 py-3">Support</li>
+              <li class="list-group-item ps-0 py-3">Ingredients</li>
+              <li class="list-group-item ps-0 py-3">Recipes</li>
+              <li class="list-group-item ps-0 py-3">Sub-Recipes</li>
+              <li class="list-group-item ps-0 py-3">Margin/Selling Calculator</li>
+              <li class="list-group-item ps-0 py-3">Food Allergens</li>
+              <li class="list-group-item ps-0 py-3">Ingredient Swapping </li>
+              <li class="list-group-item ps-0 py-3">Supplier Management</li>
+              <li class="list-group-item ps-0 py-3">Customer Management</li>
+              <li class="list-group-item ps-0 py-3">Waste & Loss Calculator</li>
+              <li class="list-group-item ps-0 py-3">Measurement Converter</li>
+              <li class="list-group-item ps-0 py-3">Inventory Management</li>
+              <li class="list-group-item ps-0 py-3">Ingredient Cost History</li>
+              <li class="list-group-item ps-0 py-3">Currency Preference</li>
+              <li class="list-group-item ps-0 py-3">Recipe Scaling </li>
+              <li class="list-group-item ps-0 py-3">Recipe Instructions</li>
+              <li class="list-group-item ps-0 py-3">Image Uploading</li>
+              <li class="list-group-item ps-0 py-3">Export XLS, CSV</li>
+              <li class="list-group-item ps-0 py-3">Print/Save/PDF</li>
+              <li class="list-group-item ps-0 py-3">Production Planning</li>
+              <li class="list-group-item ps-0 py-3">Nutrition Data & Labels</li>
             </ul>
           </div>
         </div>
+        {% for each in subscriptions %}
         <div class="col-md-6 col-lg-4 col-xl-3">
           <div class="card bg-primary">
             <div class="card-body">
-              <h3 class="lead mb-2">Small</h3>
-              <span class="h2 fw-bold">$49</span>
-              <p class="mt-2 mb-4 text-secondary">Our basic version for teams that are just getting started</p>
+              <h3 class="lead mb-2">{{each.title}}</h3>
+              <span class="h2 fw-bold">${{each.price}}</span>
+              <p class="mt-2 mb-4 text-secondary">{{each.description}}</p>
               <a href="#" class="btn btn-outline-white btn-with-icon rounded-pill">Buy Now <i
                   class="bi bi-arrow-right"></i></a>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span class="d-xl-none">Unlimited
-                  Viewers</span></li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span class="d-xl-none">Editors</span>
+              <li class="list-group-item d-flex align-items-center py-3"><span
+                  class="me-2 fs-6  d-xl-inline-block">{{each.ingredients}}</span> 
+                  <span class="d-xl-none">Ingredients</span>
               </li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span
-                  class="d-xl-none">Multiplayer</span>
+              <li class="list-group-item d-flex align-items-center py-3"><span
+                class="me-2 fs-6  d-xl-inline-block">{{each.recipes}}</span>
+                  <span class="d-xl-none">Recipes</span>
               </li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i> <span class="d-xl-none">Developer
-                  handoff</span></li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i> <span
-                  class="d-xl-none">Support</span>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.sub_recipes %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Sub-Recipes</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %}
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.margin_and_selling_calculator %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Margin/Selling Calculator</span></li>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %}</i> 
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.food_allergens %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+                <span class="d-xl-none">Food Allergens</span>
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.ingredient_swapping %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Ingredient Swapping</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.supplier_management %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Supplier Management</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %}
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.customer_management %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Customer Management</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.waste_and_Loss_calculator %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Waste & Loss Calculator</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.measurement_converter %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Measurement Converter</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.inventory_management %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Inventory Management</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.ingredient_cost_history %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Ingredient Cost History</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.currency_preference %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Currency Preference</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.recipe_scaling %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Recipe Scaling</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.recipe_instructions %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Recipe Instructions</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.image_uploading %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Image Uploading</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.export_xls_csv %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Export XLS, CSV</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.print_save_pdf %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Print/Save/PDF</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.production_planning %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Production Planning</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
+              </li>
+              <li class="list-group-item d-flex align-items-center py-3">
+                {% if each.nutrition_data_and_labels %}
+                <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Nutrition Data & Labels</span>
+                {% else %}
+                <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
+                {% endif %} 
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="lead mb-2">Medium</h3>
-              <span class="h2 fw-bold">$149</span>
-              <p class="mt-2 mb-4 text-secondary">Our basic version for teams that are just getting started</p>
-              <a href="#" class="btn btn-outline-white btn-with-icon rounded-pill">Buy Now <i
-                  class="bi bi-arrow-right"></i></a>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span class="d-xl-none">Unlimited
-                  Viewers</span></li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span class="d-xl-none">Editors</span>
-              </li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span
-                  class="d-xl-none">Multiplayer</span>
-              </li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span class="d-xl-none">Developer
-                  handoff</span></li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i> <span
-                  class="d-xl-none">Support</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="lead mb-2">Large</h3>
-              <span class="h2 fw-bold">$449</span>
-              <p class="mt-2 mb-4 text-secondary">Our basic version for teams that are just getting started</p>
-              <a href="#" class="btn btn-outline-white btn-with-icon rounded-pill">Buy Now <i
-                  class="bi bi-arrow-right"></i></a>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span class="d-xl-none">Unlimited
-                  Viewers</span></li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span class="d-xl-none">Editors</span>
-              </li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span
-                  class="d-xl-none">Multiplayer</span>
-              </li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span class="d-xl-none">Developer
-                  handoff</span></li>
-              <li class="list-group-item d-flex align-items-center py-3"><i
-                  class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i> <span class="d-xl-none">Support</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
