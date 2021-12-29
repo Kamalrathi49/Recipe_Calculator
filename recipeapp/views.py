@@ -12,7 +12,7 @@ from django.conf import settings
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, Email, To
 from django.contrib.auth.models import User
-from .data import subscription_plans
+from .data import *
 
 from .models import UserModel
 from company.models import Company
@@ -26,7 +26,7 @@ def index_page(request):
     if request.user.is_authenticated:
         return redirect('/dashboard')
     else:
-        ctx = {'menu': 'index', 'subscriptions': subscription_plans}
+        ctx = {'menu': 'index', 'subscriptions': subscription_plans, 'features' :features_details}
         return render(request, 'index_page.html', ctx)
 
 

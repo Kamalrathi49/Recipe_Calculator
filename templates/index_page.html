@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<style>
+  .dot {
+  margin: 5px;
+  padding: 3px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+}
+</style>
     <!-- hero -->
   <section class="overflow-hidden">
     <div class="container d-flex flex-column py-20 min-vh-100 level-3">
@@ -40,8 +49,9 @@
       </svg>
     </figure>
   </section>
+  <hr><hr>
   <!-- logo list -->
-  <section class="py-10 border-bottom bg-light">
+  <!-- <section class="py-10 border-bottom bg-light">
     <div class="container">
       <div class="carousel carousel-align text-center">
         <div
@@ -64,16 +74,16 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- content -->
-  <section class="py-15 py-xl-20 bg-light">
+  <!-- <section class="py-15 py-xl-20 bg-light">
     <div class="container">
       <div class="row align-items-center justify-content-center justify-content-lg-between">
         <div class="col-md-8 col-lg-5 mb-5 mb-xl-0" data-aos="fade-up">
           <img src="{% static 'assets/images/svg/graphic-2.svg' %}" class="img-fluid" alt="Illustration">
         </div>
         <div class="col-lg-6 text-center text-lg-start">
-          <h2>Start getting bigger numbers today</h2>
+         
           <ul class="list-group list-group-separated">
             <li class="list-group-item py-4">
               <p class="text-muted lead"><span class="text-black">Professional relocation</span> package to help you
@@ -87,9 +97,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
     <!-- video -->
-  <section class="py-15 py-xl-20 min-vh-75 position-relative overflow-hidden bg-black inverted">
+  <!-- <section class="py-15 py-xl-20 min-vh-75 position-relative overflow-hidden bg-black inverted">
     <div class="container level-3">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-6 text-center mb-5">
@@ -112,44 +122,35 @@
       <img class="position-absolute top-50 start-50 translate-middle" src="{% static 'assets/images/svg/pattern-lg-light.svg' %}"
         alt="Image">
     </figure>
-  </section>
+  </section> -->
   <!-- features -->
   <section class="py-15 py-xl-20">
     <div class="container">
       <div class="row justify-content-center mb-6">
         <div class="col-lg-8 text-center">
-          <h2 class="fw-bold"><span class="d-lg-block">Don't trust us.</span> Trust our numbers.</h2>
+          <div class="text-center mb-8">
+            <h4>Have CHEFINTEL help you make intelligent choices to maximize profilt and save time</h4>
+            <h5><span class="dot"></span>Get More Accurate Costing<span class="dot"></span></h5>
+            <h5><span class="dot"></span>Plan Production More Efficiently<span class="dot"></span></h5>
+            <h5><span class="dot"></span>Calculate Ingredient and Recipe Costs in Seconds<span class="dot"></span></h5>
+          </div>
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-10" data-aos="fade-up">
-          <div class="row separated">
-            <div class="col-lg-7 p-5">
-              <div class="d-flex align-items-end">
-                <h5 class="fs-1 mb-0 me-2 lh-1 text-primary fw-bold">18.5%</h5>
-                <p class="text-secondary">guaranteed revenue growth</p>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+              {% for each in features %}
+              <div class="col">
+                <div class="card w-1 border">
+                  <img src={{each.image}} class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{each.title}}</h5>
+                    <p class="card-text">{{each.description}}</p>
+                  </div>
+                </div>
               </div>
+              {% endfor %}
             </div>
-            <div class="col-lg-5 p-5">
-              <div class="d-flex align-items-end">
-                <h5 class="fs-1 mb-0 me-2 lh-1 text-primary fw-bold">224</h5>
-                <p class="text-secondary">curently active clients</p>
-              </div>
-            </div>
-            <div class="col-lg-5 p-5">
-              <div class="d-flex align-items-end">
-                <h5 class="fs-1 mb-0 me-2 lh-1 text-primary fw-bold">10</h5>
-                <p class="text-secondary">finished projects</p>
-              </div>
-            </div>
-            <div class="col-lg-7 p-5">
-              <div class="d-flex align-items-end">
-                <h5 class="fs-1 mb-0 me-2 lh-1 text-primary fw-bold">99.9%</h5>
-                <p class="text-secondary">of our clients are returning</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -185,7 +186,12 @@
     </div>
   </section>
     <!-- pricing -->
-  <section class="py-15 py-xl-20 bg-black inverted">
+    <section class="py-8 py-xl-10 bg-black inverted">
+    <div class="text-center mb-8">
+      <h4>Subscription Plans & Pricing</h4>
+      <h5>No Risk - No Contracts - Cancel Anytime</h5>
+      <h5>Choose Monthly or Annual Billing</h5>
+    </div>
     <div class="container">
       <div class="row align-items-end g-4 g-lg-0">
         <div class="col-xl-3 d-none d-xl-block">
@@ -238,6 +244,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Sub-Recipes</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Sub-Recipes</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %}
               </li>
@@ -246,21 +253,24 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Margin/Selling Calculator</span></li>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Margin/Selling Calculator</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %}</i> 
               <li class="list-group-item d-flex align-items-center py-3">
                 {% if each.food_allergens %}
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
+                <span class="d-xl-none">Food Allergens</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Food Allergens</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
-                <span class="d-xl-none">Food Allergens</span>
               </li>
               <li class="list-group-item d-flex align-items-center py-3">
                 {% if each.ingredient_swapping %}
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Ingredient Swapping</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Ingredient Swapping</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -269,6 +279,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Supplier Management</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Supplier Management</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %}
               </li>
@@ -277,6 +288,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Customer Management</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Customer Management</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -285,6 +297,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Waste & Loss Calculator</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Waste & Loss Calculator</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -293,6 +306,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Measurement Converter</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Measurement Converter</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -301,6 +315,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Inventory Management</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Inventory Management</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -309,6 +324,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Ingredient Cost History</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Ingredient Cost History</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -317,6 +333,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Currency Preference</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Currency Preference</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -325,6 +342,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Recipe Scaling</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Recipe Scaling</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -333,6 +351,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Recipe Instructions</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Recipe Instructions</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -341,6 +360,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Image Uploading</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Image Uploading</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -349,6 +369,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Export XLS, CSV</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Export XLS, CSV</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -357,6 +378,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Print/Save/PDF</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Print/Save/PDF</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -365,6 +387,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Production Planning</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Production Planning</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
@@ -373,6 +396,7 @@
                 <i class="bi bi-check2 me-2 fs-5 d-none d-xl-inline-block"></i>
                 <span class="d-xl-none">Nutrition Data & Labels</span>
                 {% else %}
+                <span class="d-xl-none text-decoration-line-through text-muted">Nutrition Data & Labels</span>
                 <i class="bi bi-x me-2 fs-5 d-none d-xl-inline-block text-muted"></i>
                 {% endif %} 
               </li>
