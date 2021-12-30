@@ -49,7 +49,7 @@
       </svg>
     </figure>
   </section>
-  <hr><hr>
+  <hr>
   <!-- logo list -->
   <!-- <section class="py-10 border-bottom bg-light">
     <div class="container">
@@ -124,12 +124,13 @@
     </figure>
   </section> -->
   <!-- features -->
-  <section class="py-15 py-xl-20">
+  <section class="py-10 py-xl-4">
+    <h1 style="text-decoration: underline;" class="text-center text-primary">Features</h1>
     <div class="container">
       <div class="row justify-content-center mb-6">
         <div class="col-lg-8 text-center">
+          <h3 class="mb-6">Have CHEFINTEL help you make intelligent choices to maximize profilt and save time</h3>
           <div class="text-center mb-8">
-            <h4>Have CHEFINTEL help you make intelligent choices to maximize profilt and save time</h4>
             <h5><span class="dot"></span>Get More Accurate Costing<span class="dot"></span></h5>
             <h5><span class="dot"></span>Plan Production More Efficiently<span class="dot"></span></h5>
             <h5><span class="dot"></span>Calculate Ingredient and Recipe Costs in Seconds<span class="dot"></span></h5>
@@ -141,7 +142,7 @@
             <div class="row row-cols-1 row-cols-md-2 g-4">
               {% for each in features %}
               <div class="col">
-                <div class="card w-1 border">
+                <div class="card border">
                   <img src={{each.image}} class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title">{{each.title}}</h5>
@@ -153,36 +154,40 @@
             </div>
       </div>
     </div>
-  </section>
+    <figure class="background">
+      <svg width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle data-aos="fade-up" data-aos-delay="200" cx="120%" cy="-40%" r="50%" stroke="#dddddd" stroke-opacity="1"
+          data-center-top="@r: 50%;" data-top-bottom="@r: 70%;" />
+        <circle data-aos="fade-up" data-aos-delay="400" cx="85%" cy="125%" r="75%" stroke="#dddddd" stroke-opacity="1"
+          data-center-top="@r: 75%;" data-top-bottom="@r: 95%;" />
+        <circle data-aos="fade-up" data-aos-delay="600" cx="-25%" cy="125%" r="50%" stroke="#dddddd" stroke-opacity="1"
+          data-center-top="@cx: -25%;" data-top-bottom="@cx: 45%;" />
+      </svg>
+    </figure>
+  </section><hr>
     <!-- code -->
-  <section class="pt-0 px-15 pb-xl-20">
+  <section class="px-10 py-xl-15">
     <div class="container">
-      <div class="row justify-content-between align-items-center gutter-3 gutter-lg-5">
-        <div class="col-lg-6 col-xl-5 text-center text-lg-start mb-5 mb-lg-0">
-          <h2>Start writing clean and optimized code.</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quos magni quisquam fuga quidem sapiente
-            architecto, error eligendi fugiat sequi repellendus dolorum numquam distinctio, officiis.</p>
-        </div>
-        <div class="col-lg-6" data-aos="fade-up">
-          <div class="browser bg-black inverted">
-            <span></span>
-            <div class="p-5">
-              <script type="text/plain" class="language-css">
-                body {
-                  position: relative;
-
-                > section,
-                  > footer {
-                    position: relative;
-                    margin: 0 auto;
-                    padding: $section-padding 0;
-                  }
-                }
-              </script>
+      <div class="row justify-content-center">
+        <div class="col-lg-12" data-aos="fade-up">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+              <div class=" text-center text-lg-start mb-5 mb-lg-0">
+                <h2>Other good features</h2>
+                <h5>features that help you increase profit and save time</h5>
+              </div>
+              {% for each in other_features %}
+              <div class="col">
+                <div class="card border w-100">
+                  <div class="card-body">
+                    <h5 class="card-title">{{each.title}}</h5>
+                    <p class="card-text">{{each.description}}</p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
             </div>
-          </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
     <!-- pricing -->
@@ -191,10 +196,19 @@
       <h4>Subscription Plans & Pricing</h4>
       <h5>No Risk - No Contracts - Cancel Anytime</h5>
       <h5>Choose Monthly or Annual Billing</h5>
+      <a href="{% url 'register' %}">
+        <button style="border-radius: 14px;" type="button" class="btn btn-primary">Free Signup</button>
+      </a>
     </div>
     <div class="container">
       <div class="row align-items-end g-4 g-lg-0">
         <div class="col-xl-3 d-none d-xl-block">
+          <div class="mb-15 text-warning" data-aos="fade-up">
+            <h4>Limited</h4>
+            <h5>30 Day free trial.</h5>
+            <h6>No credit card required.</h6>
+            <a href="#" class="btn btn-sm btn-primary mt-2 rounded-pill">Start 30 Days Trial</a>
+          </div>
           <div class="card">
             <ul class="list-group list-group-flush">
               <li class="list-group-item ps-0 py-3">Ingredients</li>
@@ -219,6 +233,12 @@
               <li class="list-group-item ps-0 py-3">Nutrition Data & Labels</li>
             </ul>
           </div>
+        </div>
+        <div class="mb-4 text-center text-warning d-xl-none" data-aos="fade-up">
+          <h4>Limited</h4>
+          <h5>30 Day free trial.</h5>
+          <h6>No credit card required.</h6>
+          <a href="#" class="btn btn-sm btn-primary mt-2 rounded-pill">Start 30 Days Trial</a>
         </div>
         {% for each in subscriptions %}
         <div class="col-md-6 col-lg-4 col-xl-3">

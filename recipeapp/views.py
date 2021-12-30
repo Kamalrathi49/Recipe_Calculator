@@ -17,8 +17,7 @@ from .data import *
 from .models import UserModel
 from company.models import Company
 from recipesandingredients.models import IngredientCategories
-from .forms import RegistrationForm, LoginForm, UpdateEmailForm, UpdateContactInfoForm, ForgetPasswordForm, \
-    UserSettingsForm, FeedBackForm, EmailForm, ForgetPassword
+from .forms import *
 
 
 # landing page
@@ -26,7 +25,7 @@ def index_page(request):
     if request.user.is_authenticated:
         return redirect('/dashboard')
     else:
-        ctx = {'menu': 'index', 'subscriptions': subscription_plans, 'features' :features_details}
+        ctx = {'menu': 'index', 'subscriptions': subscription_plans, 'features' :features_details, 'other_features': other_features}
         return render(request, 'index_page.html', ctx)
 
 

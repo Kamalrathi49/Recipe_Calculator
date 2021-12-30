@@ -85,36 +85,62 @@ features_details = [
   },
 ]
 
+other_features = [
+  {
+    'title': 'CALCULATE WASTE',
+    'description': 'Takes ingredient waste into account to give you a truer reflection of actual recipe cost.'
+},
+  {
+    'title': 'SWAP INGREDIENTS',
+    'description': 'Save time and effort by easily swapping one ingredient for another in the same recipe. Automatically calculates and updates total recipe cost and cost per unit for you.'
+},
+  {
+    'title': 'SPREADSHEET',
+    'description': 'Import and export all of your ingredients to Excel for cost analysis and updates. Easily amend bulk changes in one go.'
+},
+  {
+    'title': 'PRINT/SAVE/PDF EXPORT',
+    'description': 'Easily export your recipes as PDF and use them to print or save.'
+},
+  {
+    'title': 'SECURITY & BACKUPS',
+    'description': 'Our daily off-site backups ensure data safety and security.'
+},
+  {
+    'title': 'PRIVACY',
+    'description': 'Your recipes are what makes you stand out from the crowd. Each and every recipe is strictly protected and secure in your account.'
+},
+]
 
 
 
 subscription_plans = [
-  {
-  "title": "Limited",
-  "price": 0,
-  "description": "30 Day FREE trial. No credit card required",
-  "purchase_link": "",
-  "ingredients": 25,
-  "recipes": 10,
-  "sub_recipes": True,
-  "margin_and_selling_calculator": True,
-  "food_allergens": True,
-  "ingredient_swapping": True,
-  "supplier_management": True,
-  "customer_management": True,
-  "waste_and_Loss_calculator": True,
-  "measurement_converter": True,
-  "inventory_management": True,
-  "ingredient_cost_history": True,
-  "currency_preference": True,
-  "recipe_scaling": True,
-  "recipe_instructions": True,
-  "image_uploading": True,
-  "export_xls_csv": True,
-  "print_save_pdf": True,
-  "production_planning": True,
-  "nutrition_data_and_labels": False,
-},
+#   {
+#   "title": "Limited",
+#   "price": 0,
+#   "description": "30 Day FREE trial. No credit card required",
+#   "purchase_link": "",
+#   "ingredients": 25,
+#   "recipes": 10,
+#   "sub_recipes": True,
+#   "margin_and_selling_calculator": True,
+#   "food_allergens": True,
+#   "ingredient_swapping": True,
+#   "supplier_management": True,
+#   "customer_management": True,
+#   "waste_and_Loss_calculator": True,
+#   "measurement_converter": True,
+#   "inventory_management": True,
+#   "ingredient_cost_history": True,
+#   "currency_preference": True,
+#   "recipe_scaling": True,
+#   "recipe_instructions": True,
+#   "image_uploading": True,
+#   "export_xls_csv": True,
+#   "print_save_pdf": True,
+#   "production_planning": True,
+#   "nutrition_data_and_labels": False,
+# },
   {
   "title": "Basic",
   "price": 14,
