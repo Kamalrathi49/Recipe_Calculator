@@ -439,15 +439,8 @@ def ingredient_details(request, ing_id):
     nutri_fields = []
     # if the ingredient is linked any nutrition from the nutrition databse and has measurments
     # it will display the nutrients form the nutrition database and dsiplay the nutrition details from nutrition_data.xlsx file
-    print('----------start-------')
     response = requests.get("https://api.nal.usda.gov/fdc/v1/foods/search?query="+ingredient.nutriationData+"&pageSize=2&api_key=hMQNzCAc55v0XsZEycBg9zgLw5OBQaJ1M9z3TCPV")
     data = response.json()
-    print('---------continue---------')
-    # for key, value in data.items():
-    #     file = open("data.json", "a+")  # write mode
-    #     file.write(f"{key}: {value} \n")
-    #     print('----file created---------')
-    #     file.close()
     if ingredient.nutriationData == '':
         has_nutridata = False
     else:
@@ -456,8 +449,9 @@ def ingredient_details(request, ing_id):
         else:
             has_nutridata = True
             for each in data['foods']:
+                datatype = each['dataType']
                 for item in each['foodNutrients']:
-                    nutri_fields.append(item['nutrientName'])
+                    nutri_fields.append(f"{item['nutrientName']} ({item['unitName'].lower()})")
                     nutri_data.append(item['value'])
                 break
                     
@@ -492,6 +486,7 @@ def ingredient_details(request, ing_id):
             'major_allergens': ingredient.majorAllergens,
             'nutri_data': zip(nutri_data, nutri_fields),
             'has_nutridata': has_nutridata,
+            'datatype': datatype,
             'ingredient_measurments': zip(from_measurments_data, from_measurments_units, to_measurments_data,
                                           to_measurments_units)
         }

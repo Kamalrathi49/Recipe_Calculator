@@ -161,6 +161,18 @@
                           <em>Please contact the company owner to change this setting if necessary.</em>
                         <table class="table table-striped">
                             <tbody>
+                              <tr>
+                                  <td>FDC ID:</td>
+                                  <td>{{ingredient.fdcId}}</td>
+                              </tr>
+                              <tr>
+                                  <td>Food Category</td>
+                                  <td>{{ingredient.nutriationData}}</td>
+                              </tr>
+                              <tr>
+                                  <td>Data Type</td>
+                                  <td>{{datatype}}</td>
+                              </tr>
                                 {% for each_nutri,each_nutri_filed in nutri_data %}
                                     <tr>
                                         <td>{{ each_nutri_filed }}</td>
