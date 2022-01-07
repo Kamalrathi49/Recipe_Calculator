@@ -3,12 +3,12 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, response
 from wsgiref.util import FileWrapper
 import io
 import csv
 import openpyxl
-
+import requests
 from recipeapp.models import UserModel
 from company.models import Company
 
@@ -439,6 +439,15 @@ def ingredient_details(request, ing_id):
     nutri_fields = []
     # if the ingredient is linked any nutrition from the nutrition databse and has measurments
     # it will display the nutrients form the nutrition database and dsiplay the nutrition details from nutrition_data.xlsx file
+    print('----------start-------')
+    response = requests.get("https://api.nal.usda.gov/fdc/v1/foods/search?query="+ingredient.nutriationData+"&pageSize=2&api_key=hMQNzCAc55v0XsZEycBg9zgLw5OBQaJ1M9z3TCPV")
+    data = response.json()
+    print('---------continue---------')
+    # for key, value in data.items():
+    #     file = open("data.json", "a+")  # write mode
+    #     file.write(f"{key}: {value} \n")
+    #     print('----file created---------')
+    #     file.close()
     if ingredient.nutriationData == '':
         has_nutridata = False
     else:
@@ -446,15 +455,14 @@ def ingredient_details(request, ing_id):
             has_nutridata = False
         else:
             has_nutridata = True
-            for i, j in enumerate(worksheet):
-                if i == 1:
-                    for each_j in j:
-                        nutri_fields.append(each_j.value)
-                    break
-            for each in worksheet:
-                if each[1].value == ingredient.nutriationData:
-                    for col in each:
-                        nutri_data.append(col.value)
+            for each in data['foods']:
+                for item in each['foodNutrients']:
+                    nutri_fields.append(item['nutrientName'])
+                    nutri_data.append(item['value'])
+                break
+                    
+
+
     if ingredient.fromMeasurementData == None:
         from_measurments_data = []
         from_measurments_units = []

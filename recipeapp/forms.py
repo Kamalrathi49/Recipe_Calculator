@@ -23,23 +23,31 @@ class UserForm(UserCreationForm):
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=200, widget=forms.TextInput(
-        attrs={'placeholder': 'Username'}))
+        attrs={'placeholder': 'Username',
+                'class': 'form-control mb-2'
+        }))
     password = forms.CharField(max_length=200, widget=forms.PasswordInput(
-        attrs={'placeholder': 'Password'}))
+        attrs={'placeholder': 'Password',
+                'class': 'form-control'
+        }))
 
 
 class RegistrationForm(forms.Form):
     username = forms.CharField(max_length=225, widget=forms.TextInput(
-        attrs={'placeholder': 'Username'}))
+        attrs={'placeholder': 'Username',
+               'class': 'form-control mb-1'}))
     first_name = forms.CharField(max_length=225, widget=forms.TextInput(
-        attrs={'placeholder': 'FirstName'}))
+        attrs={'placeholder': 'FirstName',
+                'class': 'form-control mb-1'}))
     last_name = forms.CharField(max_length=225, widget=forms.TextInput(
-        attrs={'placeholder': 'LastName'}))
+        attrs={'placeholder': 'LastName',
+               'class': 'form-control mb-1'}))
     email = forms.EmailField(max_length=225, widget=forms.EmailInput(
-        attrs={'placeholder': 'Email'}
-    ))
+        attrs={'placeholder': 'Email',
+               'class': 'form-control mb-1'}))
     password = forms.CharField(max_length=225, widget=forms.PasswordInput(
-        attrs={'placeholder': 'Password'}))
+        attrs={'placeholder': 'Password',
+               'class': 'form-control mb-1'}))
 
 
 class UpdateEmailForm(forms.ModelForm):

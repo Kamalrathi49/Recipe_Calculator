@@ -20,7 +20,6 @@ $(function (){
             "method": "GET",
             "timeout": 0,
         };
-
         $.ajax(settings).done(function (response) {
             document.getElementById("nutrient_database_search_results").style.display="block"
             var nutri_div = $("#nutrient_database_search_results");
